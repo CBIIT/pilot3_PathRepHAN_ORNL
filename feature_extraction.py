@@ -4,15 +4,13 @@ import csv
 import logging
 import sys
 import logging
-import cPickle
+import pickle
 import re
 import random
+import os
 
 #get filepath to pubmed abstracts
-args = (sys.argv)
-if len(args) != 2:
-    raise Exception("Usage: python feature_extraction.py <path to pubmed abstracts csv>")
-filename = args[1]
+filename = 'data/labeled_abstracts_reduced_8000.csv'
 
 #set config
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
@@ -52,12 +50,12 @@ for epoch in range(10):
 model = Word2Vec.load('data/word2vec.w2v')
 
 #save all word embeddings to matrix
-print "saving word vectors to matrix"
+print("saving word vectors to matrix")
 vocab = np.zeros((len(model.wv.vocab)+1,350))
 word2id = {}
 
 #first row of embedding matrix isn't used so that 0 can be masked
-for key,val in model.wv.vocab.iteritems():
+for key,val in model.wv.vocab.items():
     idx = val.__dict__['index']
     idx += 1
     vocab[idx,:] = model[key]
@@ -73,17 +71,20 @@ vocab = np.concatenate((vocab, unk))
 unk = len(vocab)-1
 
 #save to disk
-print 'saving vocab to disk'
+if not os.path.exists('./data'):
+    os.makedirs('./data')
+    
+print('saving vocab to disk')
 np.save('data/vocab',vocab)
-with open('data/word2id.pkl','w') as f:
-    cPickle.dump(word2id,f,-1)
+with open('data/word2id.pkl','wb') as f:
+    pickle.dump(word2id,f)
     
 #process abstracts
 labels2id = {}
 max_sents = 0
 max_words = 0
 id = 0
-print 'processing abstracts'
+print('processing abstracts')
 with open('data/han_input.csv','w') as w:
     writer = csv.writer(w,dialect=Tsv)
     with open(filename,'r') as r:
@@ -133,11 +134,11 @@ with open('data/han_input.csv','w') as w:
             writer.writerow([label,', '.join(allsents)])           
             sys.stdout.write("processed %i rows      \r" % i)
             sys.stdout.flush()
-print
+print()
 
 #save labels dic to disk
-with open('data/labels2id.pkl','w') as f:
-    cPickle.dump(labels2id,f,-1)
+with open('data/labels2id.pkl','wb') as f:
+    pickle.dump(labels2id,f)
 
 #shuffle records
 fid = open("data/han_input.csv", "r")
