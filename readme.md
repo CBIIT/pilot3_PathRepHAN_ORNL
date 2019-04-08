@@ -3,7 +3,7 @@
 ##### Author: Biomedical Sciences, Engineering and Computing Group, Computer Sciences and Engineering Division, Oak Ridge National Laboratory
 
 This repo contains some of the code used for the paper *Hierarchical attention networks for information extraction from cancer pathology reports*. 
-BSEC group designed the model for information extraction from cancer pathology reports. Because the dataset used our the paper is not open access, 
+BSEC group designed the model for information extraction from cancer pathology reports. Because the dataset used in our the paper is not open access, 
 we instead provide an implementation that classifies Pubmed abstracts. 
 
 A hierarchical attention network is a deep learning model composed of hierarchies of bidirectional LSTMs/GRUs with attention
