@@ -328,4 +328,4 @@ if __name__ == "__main__":
     #train nn
     print("building hierarchical attention network")
     nn = hierarchical_attention_network(vocab,classes,max_sents,max_words)
-    nn.train(X_train,y_train,epochs=5,validation_data=(X_test,y_test))
+    nn.train(X_train,y_train,epochs=2,validation_data=(X_test,y_test))
