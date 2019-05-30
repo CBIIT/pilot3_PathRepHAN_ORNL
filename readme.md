@@ -32,6 +32,42 @@ HAN is written and tested in `Python 3.6` with the following dependencies.
     - `pip install numpy`
 - Gensim: Python package for generating Word2Vec and other embeddings
     - `pip install gensim`
+    
+# Note on how to Execute the program @Linus box with multiple versions of Python installed
+
+A Linux box or VM may have various Python versions installed. The HAN model is tested working fine in 'Python 3.6' only.
+
+The following are recommended ways to execute HAN program using Python venv (virtual environments):
+
+- Create a python3.6 virtual environment
+$ mkdir environments  (Create all python virtual environments in one central location)
+$ cd environments
+$ python3.6 -m venv env3.6  (Create the Python 3.6 virtual environment named env3.6)
+$ ls env3.6
+--> bin include lib lib64 pyvenv.cfg
+
+- Install all above indicated dependencies, including:
+  TensorFlow, scikit-learn, Numpy and Genim
+
+- Activate the virtual environment to start working
+$ source env3.6/bin/activate
+--> (env3.6) [loginXXX@ncias-q1234-v environments] $ python -V
+--> Python 3.6.8
+
+- Navigate to where the python program files are located to execute the program
+If HAN python files are at the parent directory of "environments":
+$ cd ..
+--> (env3.6) [loginXXX@ncias-q1234-v pilot3_PathRepHAN_ORNL]$ 
+
+$ python feature_extraction.py
+--> See results below
+
+$ python tf_han.py
+--> See results below
+
+- Deactivate the python venv when you are done working
+$ deactivate
+--> [loginXXX@ncias-q1234-v pilot3_PathRepHAN_ORNL]$
 
 ### Run with sample data
 
