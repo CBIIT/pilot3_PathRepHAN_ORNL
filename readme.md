@@ -40,34 +40,35 @@ A Linux box or VM may have various Python versions installed. The HAN model is t
 The following are recommended ways to execute HAN program using Python venv (virtual environments):
 
 - Create a python3.6 virtual environment
-$ mkdir environments  (Create all python virtual environments in one central location)
-$ cd environments
-$ python3.6 -m venv env3.6  (Create the Python 3.6 virtual environment named env3.6)
-$ ls env3.6
---> bin include lib lib64 pyvenv.cfg
+$ mkdir environments  (Create all python virtual environments in one central location) </br>
+$ cd environments </br>
+$ python3.6 -m venv env3.6  (Create the Python 3.6 virtual environment named env3.6) </br>
+$ ls env3.6 </br>
+--> bin include lib lib64 pyvenv.cfg </br>
 
-- Install all above indicated dependencies, including:
-  TensorFlow, scikit-learn, Numpy and Genim
+- Install all above indicated dependencies, including: </br>
+  TensorFlow, scikit-learn, Numpy and Genim </br>
 
-- Activate the virtual environment to start working
-$ source env3.6/bin/activate
---> (env3.6) [loginXXX@ncias-q1234-v environments] $ python -V
---> Python 3.6.8
+- Activate the virtual environment to start working </br>
+$ source env3.6/bin/activate </br>
+--> (env3.6) [loginXXX@ncias-q1234-v environments] </br>
+$ python -V </br>
+--> Python 3.6.8</br>
 
 - Navigate to where the python program files are located to execute the program
-If HAN python files are at the parent directory of "environments":
-$ cd ..
+If HAN python files are at the parent directory of "environments": </br>
+$ cd ..</br>
 --> (env3.6) [loginXXX@ncias-q1234-v pilot3_PathRepHAN_ORNL]$ 
 
-$ python feature_extraction.py
---> See results below
+$ python feature_extraction.py</br>
+--> See results below</br>
 
-$ python tf_han.py
---> See results below
+$ python tf_han.py</br>
+--> See results below</br>
 
-- Deactivate the python venv when you are done working
-$ deactivate
---> [loginXXX@ncias-q1234-v pilot3_PathRepHAN_ORNL]$
+- Deactivate the python venv when you are done working</br>
+$ deactivate</br>
+--> [loginXXX@ncias-q1234-v pilot3_PathRepHAN_ORNL]$</br>
 
 ### Run with sample data
 
