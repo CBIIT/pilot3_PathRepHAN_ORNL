@@ -12,6 +12,15 @@ weighted sentence embedding based on the words in the sentence that are most rel
 time, broken into the sentence embeddings from the lower hierarchy. This hierarchy outputs a weighted document embedding based on the sentences in the document that
 are most relevant to the classification. Dropout is applied to this final document embedding, and it is then fed into a softmax classifier.
 
+### Completed Model Trans_Validate Template
+Model Developer/POC: Hong-Jun Yoon </br>
+Model Name: HAN </br>
+Inputs: Indices of tokenized text </br>
+Outputs: classificaiton, softmax </br>
+Training Data: sample data available in the repo </br>
+Uncertainty Quantification: N/A </br>
+Platform: Tensorflow </br>
+
 ### Dataset Description
 
 Each abstract in the PubMed dataset comes pretagged with medical subject headings (MeSH labels) that identify general topics associated with that abstract
